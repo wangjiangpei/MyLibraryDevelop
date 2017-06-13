@@ -6,16 +6,19 @@ import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.dscs.tools.T;
+import com.dscs.tools.utils.JsonUtilsForJava;
 import com.dscs.tools.utils.LogUtils;
 import com.dscs.tools.utils.TimeUtils;
 import com.dscs.tools.view.MultiImageSelector;
 import com.dscs.tools.view.datetimeselect.SlideDateTimeListener;
 import com.dscs.tools.view.datetimeselect.SlideDateTimePicker;
+import com.dscs.tools.view.dialog.VerifyDialog;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -33,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mContext = this;
+        test();
         imageView = (ImageView) findViewById(R.id.imageView);
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,6 +63,17 @@ public class MainActivity extends AppCompatActivity {
                         .show();
             }
         });
+    }
+
+    private void test() {
+        String json  = "{\n" +
+                "    \"name\": \"BeJson\",\n" +
+                "    \"url\": \"http://www.bejson.com\",\n" +
+                "    \"page\": 88,\n" +
+                "    \"isNonProfit\": true\n" +
+                "}";
+        String url = new JsonUtilsForJava(json).getJsonStr("url");
+        LogUtils.i(url);
     }
 
     private void pickImage(int index) {
@@ -90,5 +105,26 @@ public class MainActivity extends AppCompatActivity {
                 imageView.setImageURI(Uri.parse(mSelectPath.get(0)));
             }
         }
+    }
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK
+                && event.getRepeatCount() == 0) {
+            new VerifyDialog(this)
+                    .setMessage("你不会离开我的，一定是按错了！！！")
+                    .setText("改天再来","继续玩耍")
+                    .setVerifyListener(new VerifyDialog.VerifyListener() {
+                        @Override
+                        public void confirm() {
+                            finish();
+                        }
+                        @Override
+                        public void countermand() {
+
+                        }
+                    }).show();
+            return false;
+        }
+        return super.onKeyDown(keyCode, event);
     }
 }
