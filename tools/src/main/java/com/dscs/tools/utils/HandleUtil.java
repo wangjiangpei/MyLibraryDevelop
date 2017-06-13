@@ -280,7 +280,7 @@ public class HandleUtil {
      * can move it. If it is a large image, focus on the side handles so user
      * can grab them. Corresponds to the appearance of the
      * RuleOfThirdsGuidelines.
-     * 
+     *
      * @return true if it is small enough such that it should focus on the
      *         center; less than show_guidelines limit
      */

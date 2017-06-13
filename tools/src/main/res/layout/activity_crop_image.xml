@@ -71,6 +71,5 @@
             android:background="#fff"
             android:gravity="center"
             />
-
     </LinearLayout>
 </RelativeLayout>

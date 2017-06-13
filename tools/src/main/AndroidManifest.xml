@@ -7,10 +7,10 @@
         android:allowBackup="true"
         android:label="@string/app_name"
         android:supportsRtl="true">
-        <activity android:name=".imageselecttools.CropImageActivity"
-            android:label="裁剪图片"/>
         <activity android:name=".imageselecttools.MultiImageSelectorActivity"
             android:label="图片选择"/>
+        <activity android:name=".cropwindow.CropImageActivity"
+            android:label="图片裁剪"/>
     </application>
 
 </manifest>
