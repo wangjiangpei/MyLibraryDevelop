@@ -1,6 +1,7 @@
 package com.dscs.tools.utils;
 
 import java.io.File;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -19,7 +20,10 @@ public class TimeUtils {
     public static String formatPhotoDate(long time){
         return timeFormat(time, "yyyy-MM-dd");
     }
-
+    public static String dateToYMD(Date time) {
+        DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+        return df.format(time);
+    }
     public static String formatPhotoDate(String path){
         File file = new File(path);
         if(file.exists()){
