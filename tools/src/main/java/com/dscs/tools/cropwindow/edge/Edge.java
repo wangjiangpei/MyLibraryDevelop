@@ -22,7 +22,7 @@ import com.dscs.tools.utils.AspectRatioUtil;
 /**
  * Enum representing an edge in the crop window.
  */
-public enum Edge {
+public enum                                                                                                                                                                              Edge {
 
     LEFT,
     TOP,

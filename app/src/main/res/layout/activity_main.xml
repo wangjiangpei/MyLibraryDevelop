@@ -3,17 +3,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.dscs.mylibrarydevelop.MainActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context="com.dscs.mylibrarydevelop.MainActivity">
+
+    <ListView
+        android:id="@+id/listView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="200dip" />
+
     <TextView
         android:id="@+id/time_select"
         android:layout_width="match_parent"
         android:layout_height="40dip"
         android:gravity="center_vertical"
-        android:text="时间选择"/>
+        android:text="时间选择" />
 </LinearLayout>
